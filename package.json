@@ -1,0 +1,17 @@
+{
+  "name": "social_network_api",
+  "version": "1.0.0",
+  "description": "NoSQL challenge using ExpressJS, Mongoose, and dayJS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dayjs": "^1.11.10",
+    "express": "^4.17.1",
+    "mongoose": "^7.0.2"
+  }
+}
