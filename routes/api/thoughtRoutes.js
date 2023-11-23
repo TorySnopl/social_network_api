@@ -5,7 +5,7 @@ const thoughtController = require('/Users/tory/Documents/repos/social_network_ap
 //Thought Routes
 router.get('/', thoughtController.getThoughts);
 router.get('/:thoughtId', thoughtController.getSingleThought);
-router.post('', thoughtController.createThought);
+router.post('/', thoughtController.createThought);
 router.put('/:thoughtId', thoughtController.updateThought);
 router.delete('/:thoughtId', thoughtController.deleteThought);
 router.post('/:thoughtId/reactions', thoughtController.createReaction);

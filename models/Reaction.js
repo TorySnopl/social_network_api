@@ -22,10 +22,8 @@ const reactionSchema = new Schema ({
             return dayjs(createdAt).format("LLL")
         }
     },
-},
-{
-    timestamps: true,
-});
+}
+);
 
 const Reaction = model('reaction', reactionSchema);
 

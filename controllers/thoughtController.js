@@ -31,7 +31,7 @@ async getSingleThought (req,res) {
 async createThought(req,res){
     try {
         const thought = await Thought.create(req.body);
-        const user = await User.findOne({_id: req.params.userId});
+        const user = await User.findOne({username: req.body.username});
 
         if (!user){
             return res.status(404).json({message: "User not found"});
