@@ -38,7 +38,7 @@ async createThought(req,res){
         }
 
         user.thoughts.push(thought._id);
-        user.save();
+        await user.save();
 
         res.json(thought);
     }catch (err){
@@ -82,7 +82,44 @@ async deleteThought(req,res){
 
 // /api/thoughts/:thoughtId/reactions;
 //Post to create a reaction stored in a single thoughts reactions array
+async createReaction(req,res){
+    try{
+        const reaction = await Reaction.create(req.body);
+        const thought = await Thought.findOne({ _id: req.params.thoughtId});
+
+        if(!thought){
+            return res.status(404).json({message: "Thought not found with that Id"})
+        }
+
+        thought.reactions.push(reaction._id);
+
+        await thought.save();
+
+        res.json(thought);
+    }catch(err){
+        console.error(err);
+        return res.status(500).json(err);
+    }
+},
 
 //Delete to pull and remove a reaction by the reactions reactionId value
+async deleteReaction(req,res){
+    try{
+        const thought = await Thought.findOne({_id: req.params.thoughtId});
+
+        if (!thought){
+            return res.status(404).json({message: "thought not found"})
+        }
+
+        thought.reactions.pull({ _id: req.params.reactionId});
+
+        await thought.save();
+
+        res.json({message: "Reaction removed successfully"});
+    }catch (err){
+        console.error(err);
+        return res.status(500).json(err);
+    }
+},
 
 };
