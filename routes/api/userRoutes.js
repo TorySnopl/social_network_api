@@ -4,12 +4,12 @@ const userController = require('/Users/tory/Documents/repos/social_network_api/c
 
 // User Routes
 
-router.get('/users', userController.getUsers);
-router.get('/users/:userId', userController.getSingleUser);
-router.post('/users', userController.createUser);
-router.put('users/:userId', userController.updateUser);
-router.delete('/users/:userId', userController.deleteUser);
-router.post('/users/:userId/friends/:friendId', userController.addFriend);
-router.delete('/users/:userId/friends/:friendId', userController.removeFriend);
+router.get('/', userController.getUsers);
+router.get('/:userId', userController.getSingleUser);
+router.post('/', userController.createUser);
+router.put('/:userId', userController.updateUser);
+router.delete('/:userId', userController.deleteUser);
+router.post('/:userId/friends/:friendId', userController.addFriend);
+router.delete('/:userId/friends/:friendId', userController.removeFriend);
 
 module.exports = router;
