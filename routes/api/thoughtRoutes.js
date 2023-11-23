@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const thoughtController = require('../controllers/thoughtController');
+const thoughtController = require('/Users/tory/Documents/repos/social_network_api/controllers/thoughtController');
 
 //Thought Routes
 router.get('/thoughts', thoughtController.getThoughts);
