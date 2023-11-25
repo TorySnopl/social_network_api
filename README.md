@@ -28,6 +28,15 @@ NoSQL challenge using ExpressJS, Mongoose, and dayJS
 
 ## Installation
 
+In order to run the program:
+- Clone this code into a code editor like VScode
+- Open a terminal and navigate to the root folder
+- Run the command: NPM I
+- Run the command: Node Index
+- Open Insomnia to test the routes which can be found in the controllers and routes folders.
+
+If you do not have Insomnia installed, you will need to install it via this [link](https://docs.insomnia.rest/).
+
 ## Usage
 
 ## Technologies Used
