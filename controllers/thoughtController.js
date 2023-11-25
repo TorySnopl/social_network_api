@@ -84,18 +84,14 @@ async deleteThought(req,res){
 //Post to create a reaction stored in a single thoughts reactions array
 async createReaction(req,res){
     try{
-        const reaction = await Reaction.create(req.body);
-        const thought = await Thought.findOne({ _id: req.params.thoughtId});
+       const thoughtData = await Thought.findOneAndUpdate(
+        {_id: req.params.thoughtId},
+        { $addToSet: {reactions: req.body}},
+        {runValidators: true, new: true}
+       )
 
-        if(!thought){
-            return res.status(404).json({message: "Thought not found with that Id"})
-        }
+        res.json(thoughtData);
 
-        thought.reactions.push(reaction._id);
-
-        await thought.save();
-
-        res.json(thought);
     }catch(err){
         console.error(err);
         return res.status(500).json(err);
@@ -105,17 +101,12 @@ async createReaction(req,res){
 //Delete to pull and remove a reaction by the reactions reactionId value
 async deleteReaction(req,res){
     try{
-        const thought = await Thought.findOne({_id: req.params.thoughtId});
+         await Thought.findOneAndUpdate(
+            {_id: req.params.thoughtId},
+            {$pull: {reactions: req.body}}
+            )
 
-        if (!thought){
-            return res.status(404).json({message: "thought not found"})
-        }
-
-        thought.reactions.pull({ _id: req.params.reactionId});
-
-        await thought.save();
-
-        res.json({message: "Reaction removed successfully"});
+        res.json({message: `Reaction removed successfully`});
     }catch (err){
         console.error(err);
         return res.status(500).json(err);
