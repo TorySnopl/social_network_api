@@ -39,15 +39,35 @@ If you do not have Insomnia installed, you will need to install it via this [lin
 
 ## Usage
 
+This application is the backend code to a social media platform allowing users to have friends and react to other users content. This is not a fully functioning platform but rather a demonstration of backend code using mongoose.
+
 ## Technologies Used
+
+- Node
+- Express
+- Day JS
+- MongoDB
+- Mongoose
 
 ## What I Learned
 
+I learned that I really enjoy the looser structure of MongoDB and mongoose. I think it is easier and quicker to build routes. I really like using controllers to build the actual routes in and exporting them so that the routes files in the api are cleaner and easier to follow.
+
+Building the reactions arrays proved to be a bit of a struggle. I was initially trying to use traditional array methods like `.push()` and the save the array. It was much easier and cleaner to use mongoDB methods like `.findOneAndUpdatea()`. I am looking forward to getting more familiar with mongoDB and mongoose on future projects.
+
 ## Screenshots
+
+![Server Running](./assets/Images/runningOnPort.png)
+
+![Get all users](./assets/Images/getAllUsers.png)
 
 ## Demo Video
 
 ## Source Code
 
+No source code was provided. Some code snippets were used from U of O bootcamp activities. Thank you to askBCS for their support as well. 
+
 ## Author
+
+I am a University of Oregon full stack developer bootcamp student. I am looking to collaborate on any type of coding project to hone my skills and expand my knowledge base. Please check out my other projects on [github](https://github.com/TorySnopl). Lets connect via [LinkedIn](https://www.linkedin.com/in/tory-snopl-70b00a283/).
 
