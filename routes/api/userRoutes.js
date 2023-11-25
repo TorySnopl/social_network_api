@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const userController = require('/Users/tory/Documents/repos/social_network_api/controllers/userController');
+const userController = require('../../controllers/userController');
 
 // User Routes
 
